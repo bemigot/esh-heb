@@ -1,5 +1,5 @@
-a half-baked "virtual" keyboard for Hebrew.
-Skeleton modeled after [Pāli keyboard](https://siongui.github.io/2017/01/28/javascript-virtual-keypad/) as published by @siongui
+a half-baked "virtual" keyboard for Hebrew (think Lambdin!).
+JS skeleton modeled after [Pāli keyboard](https://siongui.github.io/2017/01/28/javascript-virtual-keypad/) as published by [@siongui](https://github.com/siongui)
 
 TODO:
  - add space key
