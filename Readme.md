@@ -1,5 +1,5 @@
 a half-baked "virtual" keyboard for Hebrew.
-See it in action: x302.net/wthw/hebrew-keyboard
+Skeleton modeled after [Pāli keyboard](https://siongui.github.io/2017/01/28/javascript-virtual-keypad/) as published by @siongui
 
 TODO:
  - add space key
