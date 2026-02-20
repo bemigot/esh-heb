@@ -1,0 +1,12 @@
+[
+  { "id": "h7225", "lemma": "רֵאשִׁית", "transliteration": "reshit", "meaning": "beginning, first, chief", "root": "ראש" },
+  { "id": "h430", "lemma": "אֱלֹהִים", "transliteration": "elohim", "meaning": "God, gods", "root": "אלה" },
+  { "id": "h1254", "lemma": "בָּרָא", "transliteration": "bara", "meaning": "to create, shape, form", "root": "ברא" },
+  { "id": "h8064", "lemma": "שָׁמַיִם", "transliteration": "shamayim", "meaning": "heavens, sky", "root": "שׁמ" },
+  { "id": "h776", "lemma": "אֶרֶץ", "transliteration": "erets", "meaning": "earth, land", "root": "ארץ" },
+  { "id": "h1961", "lemma": "הָיָה", "transliteration": "hayah", "meaning": "to be, become, happen", "root": "היה" },
+  { "id": "h559", "lemma": "אָמַר", "transliteration": "amar", "meaning": "to say, speak", "root": "אמר" },
+  { "id": "h7200", "lemma": "רָאָה", "transliteration": "ra'ah", "meaning": "to see, look at, perceive", "root": "ראה" },
+  { "id": "h2896", "lemma": "טוֹב", "transliteration": "tov", "meaning": "good, pleasant, agreeable", "root": "טוב" },
+  { "id": "h216", "lemma": "אוֹר", "transliteration": "or", "meaning": "light", "root": "אור" }
+]

@@ -1,0 +1,165 @@
+.dictionary-container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  z-index: 10;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  direction: rtl;
+  text-align: right;
+}
+
+.kbd-toggle {
+  font-size: 1.5rem;
+  padding: 0 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+.keyboard-wrapper {
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.results-info {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 1rem 0;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+}
+
+.entry-card {
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.entry-card:hover {
+  background: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.lemma {
+  font-size: 1.5rem;
+  font-weight: bold;
+  direction: rtl;
+}
+
+.transliteration {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.meaning {
+  font-size: 1.1rem;
+}
+
+.root {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.detail-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.detail-lemma {
+  font-size: 2.5rem;
+  font-weight: bold;
+  direction: rtl;
+  text-align: center;
+}
+
+.detail-trans {
+  text-align: center;
+  color: #666;
+}
+
+.detail-meaning {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.detail-root, .detail-id {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.loading, .no-results, .initial-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #666;
+}
+
+.initial-state p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.initial-state .hint {
+  font-size: 0.9rem;
+  color: #999;
+}

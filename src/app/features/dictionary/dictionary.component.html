@@ -1,0 +1,75 @@
+<div class="dictionary-container">
+  <header>
+    <h1>Biblical Hebrew Dictionary</h1>
+    <div class="search-box">
+      <div class="input-wrapper">
+        <input 
+          type="text" 
+          [ngModel]="searchQuery()" 
+          (ngModelChange)="onSearch($event)"
+          placeholder="חפש מילה..."
+          class="search-input"
+          #searchInput
+        />
+        <button class="kbd-toggle" (click)="showKeyboard.set(!showKeyboard())">
+          ⌨️
+        </button>
+      </div>
+    </div>
+    
+    @if (showKeyboard()) {
+      <div class="keyboard-wrapper">
+        <app-keyboard 
+          (keyClicked)="onKeyInput($event)" 
+          (backspaceClicked)="onBackspace()"
+        ></app-keyboard>
+      </div>
+    }
+  </header>
+
+  <main>
+    @if (dictionaryService.loading()) {
+      <div class="loading">Loading dictionary...</div>
+    } @else {
+      @if (!isSearchActive()) {
+        <div class="initial-state">
+          <p>Dictionary loaded: {{ dictionaryService.searchResults().length }} entries</p>
+          <p class="hint">Type in the search box or use the keyboard to find a word.</p>
+        </div>
+      } @else {
+        <div class="results-info">
+          {{ results().length }} entries found for "{{ searchQuery() }}"
+        </div>
+        
+        <ul class="entry-list">
+          @for (entry of results(); track entry.id) {
+            <li class="entry-card" (click)="selectEntry(entry)">
+              <div class="lemma">{{ entry.lemma }}</div>
+              <div class="transliteration">/{{ entry.transliteration }}/</div>
+              <div class="meaning">{{ entry.meaning }}</div>
+              @if (entry.root) {
+                <div class="root">Root: {{ entry.root }}</div>
+              }
+            </li>
+          } @empty {
+            <li class="no-results">No entries found for "{{ searchQuery() }}"</li>
+          }
+        </ul>
+      }
+    }
+  </main>
+
+  @if (selectedEntry()) {
+    <div class="detail-overlay" (click)="selectedEntry.set(null)">
+      <div class="detail-card" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="selectedEntry.set(null)">&times;</button>
+        <div class="detail-lemma">{{ selectedEntry()?.lemma }}</div>
+        <div class="detail-trans">{{ selectedEntry()?.transliteration }}</div>
+        <hr/>
+        <div class="detail-meaning">{{ selectedEntry()?.meaning }}</div>
+        <div class="detail-root">Root: {{ selectedEntry()?.root }}</div>
+        <div class="detail-id">Strong's: {{ selectedEntry()?.id }}</div>
+      </div>
+    </div>
+  }
+</div>
