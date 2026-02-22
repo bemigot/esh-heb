@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "bible-hebrew-app": {
+    "eh2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "bible-hebrew-app:build:production"
+              "buildTarget": "eh2:build:production"
             },
             "development": {
-              "buildTarget": "bible-hebrew-app:build:development"
+              "buildTarget": "eh2:build:development"
             }
           },
           "defaultConfiguration": "development"
