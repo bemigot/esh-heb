@@ -1,4 +1,16 @@
+## GitHub Actions > Firebase deployment setup
+
+1. Create Fibase project - done - [bihebr2](https://console.firebase.google.com/project/bihebr2/settings/general)
+2. Obtain "secret" and configure that for use in a repository (project?) level action
+   * Go to [**Project Settings** > **Service Account** tab](https://console.firebase.google.com/project/bihebr2/settings/serviceaccounts/adminsdk)
+   * push "Generate new private key" button, downlaod and save the generated JSON file in a safe place - done - this project uses `./.secret/
+   * configure ??? in GitHub
+   * TBD
+
 ## Firebase usage monitoring/alerting, and overusage prevention
+
+### "Instant" **notifications**
+
 **Q**: my app is hosted on Firebase (free-tier Spark plan). Can I get notifications on excessive traffic use (e.g. 50% of monthly cap used) delivered to my Android phone, e.g. in Telegram app?
 
 **A**: Yes, you can receive these notifications on your Android phone via Telegram, though it requires a bit of setup.
@@ -35,6 +47,8 @@ Important Constraints for _Spark Plan_ (free tier)
 * **Hard Stop**: Remember that on the Spark plan, if you hit 100%,
   services like Firestore or Hosting will simply return a "Resource Exhausted" error until the next cycle.
 
+### Resource exhaustion prevention
+
 **Q**: Speaking of the limitation: The Firebase console and monitoring dashboards are not always real-time;
 usage data can lag by several hours to 24 hours.
 
@@ -47,3 +61,18 @@ Can I proactively query current usage metrics, and consider them a better option
 * **Visibility Delay**: Once sampled, data typically becomes visible in the _Monitoring API_ **within 4 minutes**.
 
 These metrics are a **significantly better option** for preventing a _Hard Stop_.
+
+#### Proactive Querying via API
+You can proactively query these metrics programmatically using the Cloud Monitoring API (v3).
+This allows you to build your own "pre-alert" system:
+* List Metrics: Use the API to fetch timeSeries.list for specific Firebase resources.
+* Key Metrics to Watch:
+        Cloud Firestore: `firestore.googleapis.com`
+        Realtime Database: `firebasedatabase.googleapis.com`
+        Hosting: `serviceruntime.googleapis.com`
+
+#### Proactive Protection Strategies
+Since the Spark plan's hard stop is absolute, you can use these metrics to take defensive action before the limit is hit:
+* Threshold-Based Features: Use a Firebase **Cloud Function** triggered by a _Cloud Monitoring alert_ to toggle a _Remote Config flag_.
+* Circuit Breaking: When your queried metrics show you are at 90% of the daily/monthly free limit, your app can read the _Remote Config flag_ and enter a "low-bandwidth mode" (e.g., disabling image loading or non-essential writes) to stretch the remaining quota.
+* Rate Limiting: For critical functions, implement your own internal counters or rate limiting to guard against spikes before the official Firebase counters catch up.
