@@ -1,0 +1,22 @@
+You can find public-domain, plain-text (or easily convertible) Strong’s Hebrew dictionary files,
+often called "StrongsHebrew," from several open-source repositories and Bible study tools.
+ 
+Here are the best sources:
+
+* Open Scriptures (GitHub): The most reliable source for plain text or XML formats of Strong’s Hebrew lexicon.
+  * Repository: openscriptures/strongs (contains dictionaries of Hebrew and Greek).
+  * Lexicon Data: openscriptures/HebrewLexicon contains
+    * Strong’s Hebrew dictionary (HebrewStrong.xml)
+    * Brown-Driver-Briggs (BrownDriverBriggs.xml).
+* SWORD Project (CrossWire Bible Society): Offers a downloadable, public-domain module named "StrongsHebrew".
+* BibleSupport.com: Hosts a "Hebrew Lexicon 2.0" (Strong's + BDB) that is in the public domain
+  and frequently used in software like e-Sword.
+* Wikisource: The 1890 Strong's Exhaustive Concordance is in the public domain and available for digital text access.
+* Scribd / Bibles Net: You can find PDF versions of the Strong's Hebrew dictionary which can be easily converted to plain text. 
+
+License & Usage
+
+* Public Domain: The original 1890 text of Strong's Hebrew dictionary is in the public domain.
+* Attribution: While the content is free, some specific digital implementations
+  (like those from the Open Scriptures Hebrew Bible Project) are released under a
+  Creative Commons Attribution 4.0 International license, requiring credit to the project.
